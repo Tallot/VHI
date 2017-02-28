@@ -4,7 +4,8 @@ import matplotlib.pyplot as plt
 
 def df_averaged(file):
 	columns_list=['Year','Week','SMN','SMT','VCI','TCI','VHI']
-	df=pd.read_csv(file, skipfooter=1, skiprows=1, names=columns_list, engine='python', delimiter='\,\s+|\,|\s+')
+	df=pd.read_csv(file, skipfooter=1, skiprows=1, names=columns_list, engine='python', delimiter='\,\s+|\,|\s+', verbose=True)
+	df.fillna(0)
 	return df
 	
 def df_percentage(file):
@@ -41,7 +42,7 @@ def percent_vhi(frame, percent):
 	print(list_of_years)
 	return list_of_years
 
-#frame1=df_averaged('data/vhi_id_1(averaged)  2017-02-28.csv')
-#year_vhi_extremums(frame1, 1981)
+frame1=df_averaged('data/vhi_id_1(averaged)  2017-02-28.csv')
+year_vhi_extremums(frame1, 1981)
 frame2=df_percentage('data/vhi_id_1(percentage)  2017-02-28.csv')
 percent_vhi(frame2, 5)
