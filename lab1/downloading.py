@@ -13,4 +13,4 @@ for x in range (1,28):
 	file2.write(vhi_url2.read())
 	file2.close()
 	
-print ("VHI data is downloaded...")
+print ("VHI data are downloaded...")
